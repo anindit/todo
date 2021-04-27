@@ -97,12 +97,12 @@ function Slot(props)
         })
     }
 
-    function ShowcarNumber(car,carslotid)
+    function ShowcarNumber(id,car,carslotid)
     {
       if(car)
       {
         return(
-          <p>{car} <Link onClick={()=>FreeSlot(carslotid)}>Free up this slot</Link></p>
+          <p>{car} <Link onClick={()=>FreeSlot(id,carslotid)}>Free up this slot</Link></p>
         )
 
       }
@@ -112,10 +112,10 @@ function Slot(props)
 
     }
 
-    function FreeSlot(carslotid)
+    function FreeSlot(id,carslotid)
     {
       var token = localStorage.getItem("token");
-      var data = { 'carslotid':carslotid };
+      var data = { 'carslotid':carslotid,'id':id };
        const config = {
          headers: {
            Accept: "application/json",
@@ -301,7 +301,7 @@ function Slot(props)
                                        {moment(slot.created).format('YYYY/MM/DD')}
                                     </td>  
                                     <td>
-                                      {ShowcarNumber(slot.carnumber,slot.carslotid)}
+                                      {ShowcarNumber(slot._id,slot.carnumber,slot.carslotid)}
                                     </td>    
                                     
                                     <td className="text-center">
