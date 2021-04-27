@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route,Redirect,withRouter } from 'react-router-dom';
 
-const ProtectedRoute = ({props,isAuth:isAuth,component: Component, ...rest }) => {
+const ProtectedRoute = ({isAuth:isAuth,component: Component, ...rest }) => {
   
   return (
-    <Route {...rest} render={() => {
+    <Route {...rest} render={(props) => {
       return isAuth === false
         ? <Redirect to='/' />
-        : <Component {...rest} />
+        : <Component {...props} {...rest} />
     }} />
   )
 }
 
 
-export default withRouter(ProtectedRoute);
+export default ProtectedRoute;

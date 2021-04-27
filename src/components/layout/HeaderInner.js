@@ -117,6 +117,14 @@ function HeaderInner(props) {
                             <li>
                                 <Link to={"/notes/"}><i className="icon-user"></i><span>Notes</span></Link>
                             </li>
+
+                            <li>
+                                <Link to={"/slot/"}><i className="icon-user"></i><span>Slot</span></Link>
+                            </li>
+
+                            <li>
+                                <Link to={"/slot/bookslot"}><i className="icon-user"></i><span>Book Slot</span></Link>
+                            </li>
                            
                         </ul>
                     </nav>     
